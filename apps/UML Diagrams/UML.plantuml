@@ -1,0 +1,73 @@
+
+@startuml
+skinparam layout left to right direction
+skinparam defaultFontSize 26   ' Increase font size
+skinparam componentFontSize 24 ' Increase component font size
+skinparam wrapWidth 200        ' Allow more space for text wrapping
+skinparam padding 20          ' Increase spacing between elements
+skinparam arrowFontSize 24    ' Increase font size for arrows
+
+package "React Components" {
+    [App]
+    [Header]
+    [Footer]
+    [BrowserRouter]
+    [Routes]
+    [Home]
+    [Login]
+    [StudentDashboard]
+    [InstructorDashboard]
+    [CreateTeams]
+    [Teams]
+    [TeamList]
+    [TeamDetails]
+    [TeammatesList]
+    [PeerEvaluationForm]
+    [PeerEvaluationIntro]
+}
+
+package "State Management" {
+    [App] --> "loggedIn (useState)"
+    [App] --> "email (useState)"
+    [App] --> "role (useState)"
+    [App] --> "organizations (useState)"
+    [App] --> "courses (useState)"
+    [App] --> "teams (useState)"
+    [App] --> "students (useState)"
+    [App] --> "memberships (useState)"
+}
+
+package "Backend Communication" {
+    [App] --> [fetchData]
+    [fetchData] --> [Courses API]
+    [fetchData] --> [Teams API]
+    [fetchData] --> [Peer Evaluations API]
+    [fetchData] --> [Verify Token API]
+}
+
+package "API Endpoints" {
+    [Teams API] --> "/teams/:id" : "Get specific team by ID"
+    [Teams API] --> "/teams/:id/students" : "Add student to team"
+    [Teams API] --> "/teams/:id/students/:studentId" : "Remove student from team"
+    [Teams API] --> "/teams/:id/size" : "Update team size"
+    [Peer Evaluations API] --> "/submit-evaluation" : "Submit peer evaluation"
+    [Peer Evaluations API] --> "/peer-evaluations/check" : "Check if evaluation exists"
+    [Peer Evaluations API] --> "/peer-evaluations/feedback" : "Get team feedback"
+    [Rosters API] --> "/rosters" : "Create a new roster"
+    [Scores API] --> "/scores" : "Store score for a team"
+}
+
+[Routes] --> [Home]
+[Routes] --> [Login]
+[Routes] --> [StudentDashboard]
+[Routes] --> [InstructorDashboard]
+[Routes] --> [CreateTeams]
+[Routes] --> [Teams]
+[Routes] --> [TeamList]
+[Routes] --> [TeamDetails] : "if userRole = instructor"
+[Routes] --> [TeammatesList] : "if userRole = student"
+[Routes] --> [PeerEvaluationForm]
+[Routes] --> [PeerEvaluationIntro]
+
+@enduml
+

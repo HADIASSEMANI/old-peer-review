@@ -1,0 +1,49 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "globalEnv": [
+      "PORT",
+      "ANALYZE"
+    ],
+    "remoteCache": {
+      "signature": true
+    },
+    "globalDependencies": [
+      ".env",
+      "**/.env",
+      "**/.env.*local"
+    ],
+    "tasks": {
+      "build": {
+        "dependsOn": [
+          "^build",
+          "generate"
+        ],
+        "outputs": [
+          ".next/**",
+          "!.next/cache/**"
+        ]
+      },
+      "generate": {
+        "cache": false
+      },
+      "init": {
+        "cache": false
+      },
+      "lint": {
+        "dependsOn": [
+          "^lint"
+        ]
+      },
+      "format": {
+        "cache": false
+      },
+      "dev": {
+        "cache": false,
+        "persistent": true,
+        "inputs": [
+          "$TURBO_DEFAULT$",
+          "**/.env.development"
+        ]
+      }
+    }
+  }

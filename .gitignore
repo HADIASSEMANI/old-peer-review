@@ -1,0 +1,4 @@
+node_modules/
+yarn.lock
+cookies
+.DS_Store

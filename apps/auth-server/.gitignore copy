@@ -1,0 +1,7 @@
+/node_modules
+connectedClients.*
+.DS_Store
+yarn.lock
+server.cert
+server.key
+.env
