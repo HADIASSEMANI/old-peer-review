@@ -1,36 +1,34 @@
 {
-    "name": "peer-review",
-    "version": "1.0.0",
-    "packageManager": "yarn@1.22.22",
-    "description": "this is a peer review app",
-    "main": "index.js",
-    "repository": "https://github.com/SOEN341-Fall24-TEAMW/W_TEAM_SOEN341_PROJECT_F24",
-    "author": "Hadi Assemani <hadi.assemani@gmail.com>",
-    "license": "MIT",
-    "private": true,
-    "scripts": {
-      "init": "turbo init",
-      "build": "NODE_OPTIONS=--max_old_space_size=4096 turbo build",
-      "dev": "NODE_OPTIONS=--max_old_space_size=4096 turbo dev",
-      "lint": "turbo lint",
-      "format": "prettier --write \"**/*.{ts,tsx,md}\""
-    },
-    "devDependencies": {
-      "eslint": "^8.57.1",
-      "prettier": "^3.3.3",
-      "prettier-eslint": "^16.3.0",
-      "prettier-plugin-tailwindcss": "^0.6.9",
-      "tailwindcss": "^3.4.15",
-      "turbo": "^2.3.3"
-    },
-    "engines": {
-      "node": ">=18"
-    },
-    "workspaces": [
-      "apps/*"
-    ],
-    "dependencies": {
-      "search-query-parser": "^1.6.0",
-      "uuid": "^11.0.3"
-    }
+  "name": "peer-review",
+  "version": "1.0.0",
+  "packageManager": "yarn@1.22.22",
+  "description": "this is a peer review app",
+  "main": "index.js",
+  "repository": "https://github.com/SOEN341-Fall24-TEAMW/W_TEAM_SOEN341_PROJECT_F24",
+  "author": "Hadi Assemani <hadi.assemani@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "init": "turbo init",
+    "build": "NODE_OPTIONS=--max_old_space_size=4096 turbo build",
+    "dev": "NODE_OPTIONS=--max_old_space_size=4096 turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "tailwindcss": "^3.4.15",
+    "turbo": "^2.3.3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "workspaces": [
+    "apps/*"
+  ],
+  "dependencies": {
+    "search-query-parser": "^1.6.0",
+    "uuid": "^11.0.3"
   }
+}
