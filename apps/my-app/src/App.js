@@ -4,7 +4,6 @@ import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 
 import Header from './header.js';
-import NotificationContainer from './pages/notification-container.js';
 import Home from './home.js';
 import Login from './login.js';
 import CreateNewAccount from './pages/create-new-account.js';
