@@ -46,7 +46,7 @@ const ResolveButton = ({ selectedStudent, setSelectedStudent }) => {
     useEffect(() => {
         const fetchStudentRecords = async () => {
             try {
-                const response = await fetch('http://localhost:3080/get-student-records', {
+                const response = await fetch('https://peer-review.onrender.com/get-student-records', {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ const ResolveButton = ({ selectedStudent, setSelectedStudent }) => {
 
     const handleDismiss = async () => {
         try {
-            const response = await fetch("http://localhost:3080/dispute-response", {
+            const response = await fetch("https://peer-review.onrender.com/dispute-response", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -112,7 +112,7 @@ const ResolveButton = ({ selectedStudent, setSelectedStudent }) => {
 
     const handleContactTA = async () => {
         try {
-            const response = await fetch("http://localhost:3080/dispute-response", {
+            const response = await fetch("https://peer-review.onrender.com/dispute-response", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

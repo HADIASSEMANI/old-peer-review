@@ -13,7 +13,7 @@ const DeleteTeamButton = ({ teamId, onDelete }) => {
 
     const handleDelete = async () => {
         try {
-            const response = await fetch("http://localhost:3080/delete-team", {
+            const response = await fetch("https://peer-review.onrender.com/delete-team", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

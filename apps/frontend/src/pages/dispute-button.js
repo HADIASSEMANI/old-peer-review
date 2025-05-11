@@ -33,7 +33,7 @@ const DisputeButton = () => {
     useEffect(() => {
         const fetchStudentRecords = async () => {
             try {
-                const response = await fetch('http://localhost:3080/get-student-records', {
+                const response = await fetch('https://peer-review.onrender.com/get-student-records', {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ const DisputeButton = () => {
     const handleDispute = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch("http://localhost:3080/update-dispute", {
+            const response = await fetch("https://peer-review.onrender.com/update-dispute", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -94,7 +94,7 @@ const DisputeButton = () => {
     const handleEscalate = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch("http://localhost:3080/update-dispute", {
+            const response = await fetch("https://peer-review.onrender.com/update-dispute", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -81,7 +81,7 @@ const Login = ({ role, setRole, email, setEmail, loggedIn, setLoggedIn }) => {
 
     // Call the server API to check if the given email ID already exists
     const checkAccountExists = (callback) => {
-        fetch("http://localhost:3080/check-account", {
+        fetch("https://peer-review.onrender.com/check-account", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -96,7 +96,7 @@ const Login = ({ role, setRole, email, setEmail, loggedIn, setLoggedIn }) => {
 
     // Log in a user using email and password
     const logIn = () => {
-        fetch("http://localhost:3080/auth", {
+        fetch("https://peer-review.onrender.com/auth", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

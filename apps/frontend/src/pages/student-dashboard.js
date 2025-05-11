@@ -74,7 +74,7 @@ const StudentDashboard = ({ email, loggedIn, setLoggedIn }) => {
     }
 
     try {
-      fetch('http://localhost:3080/courses-students', {
+      fetch('https://peer-review.onrender.com/courses-students', {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -101,7 +101,7 @@ const StudentDashboard = ({ email, loggedIn, setLoggedIn }) => {
 
   // const fetchPeerFeedback = (teamId) => {
   //   const user = JSON.parse(localStorage.getItem("user"));
-  //   fetch(`http://localhost:3080/peer-evaluations/feedback?teamId=${teamId}`, {
+  //   fetch(`https://peer-review.onrender.com/peer-evaluations/feedback?teamId=${teamId}`, {
   //     method: "GET",
   //     headers: { 'jwt-token': user.token },
   //   })
@@ -120,7 +120,7 @@ const StudentDashboard = ({ email, loggedIn, setLoggedIn }) => {
 
   useEffect(() => {
     if (selectedTeam) {
-      fetch(`http://localhost:3080/peer-evaluations/feedback?teamId=${selectedTeam}`)
+      fetch(`https://peer-review.onrender.com/peer-evaluations/feedback?teamId=${selectedTeam}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.message === "success") {
@@ -157,7 +157,7 @@ const StudentDashboard = ({ email, loggedIn, setLoggedIn }) => {
       return;
     }
     try {
-      fetch('http://localhost:3080/courses-students', {
+      fetch('https://peer-review.onrender.com/courses-students', {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
