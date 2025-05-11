@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node --ignore database.json --ignore connectedClients.db app.js",
+    "start": "node app.js",
     "dev": "nodemon --ignore database.json --ignore connectedClients.db app.js",
     "test": "jest"
   },
