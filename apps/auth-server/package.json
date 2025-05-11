@@ -5,8 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --ignore database.json --ignore connectedClients.db app.js",
-    "dev": "node --ignore database.json --ignore connectedClients.db app.js",
+    "start": "node --ignore database.json --ignore connectedClients.db app.js",
+    "dev": "nodemon --ignore database.json --ignore connectedClients.db app.js",
     "test": "jest"
   },
   "keywords": [],
