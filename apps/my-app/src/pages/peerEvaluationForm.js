@@ -56,7 +56,7 @@ function PeerEvaluationForm() {
 
     try {
       const response = await fetch(
-        "https://old-peer-review.onrender.comsubmit-evaluation",
+        "https://old-peer-review.onrender.com/submit-evaluation",
         {
           method: "POST",
           headers: {

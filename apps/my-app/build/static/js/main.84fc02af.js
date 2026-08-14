@@ -23895,7 +23895,7 @@
                   }));
             },
             w = (e) => {
-              fetch("https://old-peer-review.onrender.comcheck-account", {
+              fetch("https://old-peer-review.onrender.com/check-account", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email: o }),
@@ -23906,7 +23906,7 @@
                 });
             },
             S = () => {
-              fetch("https://old-peer-review.onrender.comauth", {
+              fetch("https://old-peer-review.onrender.com/auth", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email: o, password: l, role: n }),
@@ -24751,7 +24751,7 @@
               { name: "Polytechnique Montr\xe9al", id: "org6" },
             ],
             M = (t) => {
-              fetch("https://old-peer-review.onrender.comcheck-account", {
+              fetch("https://old-peer-review.onrender.com/check-account", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email: e }),
@@ -24762,7 +24762,7 @@
                 });
             },
             L = () => {
-              fetch("https://old-peer-review.onrender.comcreate-account", {
+              fetch("https://old-peer-review.onrender.com/create-account", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -26862,7 +26862,7 @@
               (async () => {
                 try {
                   const e = await fetch(
-                      "https://old-peer-review.onrender.comget-student-records",
+                      "https://old-peer-review.onrender.com/get-student-records",
                       {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
@@ -26890,7 +26890,7 @@
                         n(!0);
                         try {
                           const e = await fetch(
-                            "https://old-peer-review.onrender.comupdate-dispute",
+                            "https://old-peer-review.onrender.com/update-dispute",
                             {
                               method: "POST",
                               headers: { "Content-Type": "application/json" },
@@ -26945,7 +26945,7 @@
                       n(!0);
                       try {
                         const e = await fetch(
-                          "https://old-peer-review.onrender.comupdate-dispute",
+                          "https://old-peer-review.onrender.com/update-dispute",
                           {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
@@ -27007,7 +27007,7 @@
                   void a(!1)
                 );
               try {
-                fetch("https://old-peer-review.onrender.comcourses-students", {
+                fetch("https://old-peer-review.onrender.com/courses-students", {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",
@@ -27035,7 +27035,7 @@
             (0, t.useEffect)(() => {
               c &&
                 fetch(
-                  `https://old-peer-review.onrender.compeer-evaluations/feedback?teamId=${c}`,
+                  `https://old-peer-review.onrender.com/peer-evaluations/feedback?teamId=${c}`,
                 )
                   .then((e) => e.json())
                   .then((e) => {
@@ -27081,7 +27081,7 @@
                 void a(!1)
               );
             try {
-              fetch("https://old-peer-review.onrender.comcourses-students", {
+              fetch("https://old-peer-review.onrender.com/courses-students", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
@@ -30455,7 +30455,7 @@
               (async () => {
                 try {
                   const e = await fetch(
-                      "https://old-peer-review.onrender.comget-student-records",
+                      "https://old-peer-review.onrender.com/get-student-records",
                       {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
@@ -30480,7 +30480,7 @@
           const w = async () => {
             try {
               const e = await fetch(
-                "https://old-peer-review.onrender.comdispute-response",
+                "https://old-peer-review.onrender.com/dispute-response",
                 {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
@@ -30570,7 +30570,7 @@
                                   ((async () => {
                                     try {
                                       const e = await fetch(
-                                        "https://old-peer-review.onrender.comdispute-response",
+                                        "https://old-peer-review.onrender.com/dispute-response",
                                         {
                                           method: "POST",
                                           headers: {
@@ -30754,7 +30754,7 @@
             if (g)
               try {
                 fetch(
-                  "https://old-peer-review.onrender.comget-student-feedback",
+                  "https://old-peer-review.onrender.com/get-student-feedback",
                   {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -30775,7 +30775,7 @@
               if (y)
                 try {
                   fetch(
-                    "https://old-peer-review.onrender.comget-student-peers",
+                    "https://old-peer-review.onrender.com/get-student-peers",
                     {
                       method: "POST",
                       headers: { "Content-Type": "application/json" },
@@ -30861,7 +30861,7 @@
               if (f)
                 try {
                   fetch(
-                    "https://old-peer-review.onrender.comget-feedback-records",
+                    "https://old-peer-review.onrender.com/get-feedback-records",
                     {
                       method: "POST",
                       headers: { "Content-Type": "application/json" },
@@ -31703,7 +31703,7 @@
                               try {
                                 (
                                   await fetch(
-                                    "https://old-peer-review.onrender.comdelete-student",
+                                    "https://old-peer-review.onrender.com/delete-student",
                                     {
                                       method: "POST",
                                       headers: {
@@ -31804,7 +31804,7 @@
                               try {
                                 (
                                   await fetch(
-                                    "https://old-peer-review.onrender.comdelete-team",
+                                    "https://old-peer-review.onrender.com/delete-team",
                                     {
                                       method: "POST",
                                       headers: {
@@ -31931,7 +31931,7 @@
                       try {
                         (
                           await fetch(
-                            "https://old-peer-review.onrender.comimport-student-csv",
+                            "https://old-peer-review.onrender.com/import-student-csv",
                             {
                               method: "POST",
                               headers: { "Content-Type": "application/json" },
@@ -32630,7 +32630,7 @@
                                         onClick: async () => {
                                           try {
                                             (await fetch(
-                                              "https://old-peer-review.onrender.comcreate-student",
+                                              "https://old-peer-review.onrender.com/create-student",
                                               {
                                                 method: "POST",
                                                 headers: {
@@ -33255,7 +33255,7 @@
                                         onClick: async () => {
                                           try {
                                             (await fetch(
-                                              "https://old-peer-review.onrender.comcreate-team",
+                                              "https://old-peer-review.onrender.com/create-team",
                                               {
                                                 method: "POST",
                                                 headers: {
@@ -33405,7 +33405,7 @@
                   try {
                     ((
                       await fetch(
-                        "https://old-peer-review.onrender.comedit-student",
+                        "https://old-peer-review.onrender.com/edit-student",
                         {
                           method: "POST",
                           headers: { "Content-Type": "application/json" },
@@ -33453,7 +33453,7 @@
                   try {
                     ((
                       await fetch(
-                        "https://old-peer-review.onrender.comedit-team",
+                        "https://old-peer-review.onrender.com/edit-team",
                         {
                           method: "POST",
                           headers: { "Content-Type": "application/json" },
@@ -33867,7 +33867,7 @@
                       i(!0);
                       try {
                         const e = await fetch(
-                          "https://old-peer-review.onrender.comsubmit-evaluation",
+                          "https://old-peer-review.onrender.com/submit-evaluation",
                           {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
@@ -35339,7 +35339,7 @@
                   void n(!1)
                 );
               try {
-                fetch("https://old-peer-review.onrender.comcourses", {
+                fetch("https://old-peer-review.onrender.com/courses", {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",
@@ -35371,7 +35371,7 @@
             (0, t.useEffect)(() => {
               const e = JSON.parse(localStorage.getItem("user"));
               e && e.token
-                ? fetch("https://old-peer-review.onrender.comverify", {
+                ? fetch("https://old-peer-review.onrender.com/verify", {
                     method: "POST",
                     headers: { "jwt-token": e.token },
                   })

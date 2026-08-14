@@ -169,7 +169,7 @@ const InstructorDashboard = ({
   const handleEditSubmit = async () => {
     try {
       const response = await fetch(
-        "https://old-peer-review.onrender.comedit-student",
+        "https://old-peer-review.onrender.com/edit-student",
         {
           method: "POST",
           headers: {
@@ -209,7 +209,7 @@ const InstructorDashboard = ({
   const handleTeamEditSubmit = async () => {
     try {
       const response = await fetch(
-        "https://old-peer-review.onrender.comedit-team",
+        "https://old-peer-review.onrender.com/edit-team",
         {
           method: "POST",
           headers: {
@@ -279,7 +279,7 @@ const InstructorDashboard = ({
           console.log("Parsed Data:", results.data);
           try {
             const response = await fetch(
-              "https://old-peer-review.onrender.comimport-student-csv",
+              "https://old-peer-review.onrender.com/import-student-csv",
               {
                 method: "POST",
                 headers: {
@@ -504,7 +504,7 @@ const InstructorDashboard = ({
   const handleSubmit = async () => {
     try {
       // Single API call to submit all the user data at once
-      await fetch("https://old-peer-review.onrender.comcreate-student", {
+      await fetch("https://old-peer-review.onrender.com/create-student", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -525,7 +525,7 @@ const InstructorDashboard = ({
   const handleSubmit2 = async () => {
     try {
       // Single API call to submit all the team data at once
-      await fetch("https://old-peer-review.onrender.comcreate-team", {
+      await fetch("https://old-peer-review.onrender.com/create-team", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

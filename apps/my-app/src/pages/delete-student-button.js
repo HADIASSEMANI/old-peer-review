@@ -13,7 +13,7 @@ const DeleteStudentButton = ({ studentId, onDelete }) => {
   const handleDelete = async () => {
     try {
       const response = await fetch(
-        "https://old-peer-review.onrender.comdelete-student",
+        "https://old-peer-review.onrender.com/delete-student",
         {
           method: "POST",
           headers: {

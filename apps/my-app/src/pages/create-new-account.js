@@ -128,7 +128,7 @@ const CreateNewAccount = () => {
 
   // Call the server API to check if the given email ID already exists
   const checkAccountExists = (callback) => {
-    fetch("https://old-peer-review.onrender.comcheck-account", {
+    fetch("https://old-peer-review.onrender.com/check-account", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -142,7 +142,7 @@ const CreateNewAccount = () => {
   };
 
   const createAccount = () => {
-    fetch("https://old-peer-review.onrender.comcreate-account", {
+    fetch("https://old-peer-review.onrender.com/create-account", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

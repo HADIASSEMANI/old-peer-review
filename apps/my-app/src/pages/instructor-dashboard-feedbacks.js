@@ -147,7 +147,7 @@ const InstructorFeedbackTab = ({
   useEffect(() => {
     if (selectedStudent) {
       try {
-        fetch("https://old-peer-review.onrender.comget-student-feedback", {
+        fetch("https://old-peer-review.onrender.com/get-student-feedback", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -171,7 +171,7 @@ const InstructorFeedbackTab = ({
   useEffect(() => {
     if (detailedView) {
       try {
-        fetch("https://old-peer-review.onrender.comget-student-peers", {
+        fetch("https://old-peer-review.onrender.com/get-student-peers", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -304,7 +304,7 @@ const InstructorFeedbackTab = ({
   useEffect(() => {
     if (selectedCourse) {
       try {
-        fetch("https://old-peer-review.onrender.comget-feedback-records", {
+        fetch("https://old-peer-review.onrender.com/get-feedback-records", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

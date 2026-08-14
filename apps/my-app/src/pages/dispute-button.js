@@ -41,7 +41,7 @@ const DisputeButton = () => {
     const fetchStudentRecords = async () => {
       try {
         const response = await fetch(
-          "https://old-peer-review.onrender.comget-student-records",
+          "https://old-peer-review.onrender.com/get-student-records",
           {
             method: "POST",
             headers: {
@@ -78,7 +78,7 @@ const DisputeButton = () => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        "https://old-peer-review.onrender.comupdate-dispute",
+        "https://old-peer-review.onrender.com/update-dispute",
         {
           method: "POST",
           headers: {
@@ -110,7 +110,7 @@ const DisputeButton = () => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        "https://old-peer-review.onrender.comupdate-dispute",
+        "https://old-peer-review.onrender.com/update-dispute",
         {
           method: "POST",
           headers: {
