@@ -55,7 +55,7 @@ function PeerEvaluationForm() {
     setIsSubmitting(true); // Disable submit button
 
     try {
-      const response = await fetch('https://peer-review.onrender.com/submit-evaluation', {
+      const response = await fetch('http://localhost:3080/submit-evaluation', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

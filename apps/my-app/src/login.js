@@ -27,6 +27,24 @@ const Login = ({ role, setRole, email, setEmail, loggedIn, setLoggedIn }) => {
         }
     }, [loggedIn, setEmail, setRole]);
 
+    const fillDemoInstructor = () => {
+        setRole('instructor');
+        setEmail('demo@instructor.com');
+        setPassword('password123');
+        setEmailError("");
+        setPasswordError("");
+        setRoleError("");
+    };
+
+    const fillDemoStudent = () => {
+        setRole('student');
+        setEmail('demo@student.com');
+        setPassword('password123');
+        setEmailError("");
+        setPasswordError("");
+        setRoleError("");
+    };
+
 
     const onButtonClick = () => {
 
@@ -81,7 +99,7 @@ const Login = ({ role, setRole, email, setEmail, loggedIn, setLoggedIn }) => {
 
     // Call the server API to check if the given email ID already exists
     const checkAccountExists = (callback) => {
-        fetch("https://peer-review.onrender.com/check-account", {
+        fetch("http://localhost:3080/check-account", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -96,7 +114,7 @@ const Login = ({ role, setRole, email, setEmail, loggedIn, setLoggedIn }) => {
 
     // Log in a user using email and password
     const logIn = () => {
-        fetch("https://peer-review.onrender.com/auth", {
+        fetch("http://localhost:3080/auth", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -187,6 +205,18 @@ const Login = ({ role, setRole, email, setEmail, loggedIn, setLoggedIn }) => {
                     onClick={onButtonClick}
                     style={{ width: 335.14, height: 60, fontSize: 24, borderRadius: 11, marginTop: "20px" }}
                 >{"Login"}</Button>
+                <div style={{ display: "flex", gap: "10px", marginTop: "15px", width: 335.14 }}>
+                    <Button
+                        variant="light"
+                        onClick={fillDemoInstructor}
+                        style={{ flex: 1, borderRadius: 11 }}
+                    >Demo Instructor</Button>
+                    <Button
+                        variant="light"
+                        onClick={fillDemoStudent}
+                        style={{ flex: 1, borderRadius: 11 }}
+                    >Demo Student</Button>
+                </div>
             </form>
             <Divider my="sm" />
             <div style={{ height: 1, width: 300, backgroundColor: "#d3d3d3" }}></div>

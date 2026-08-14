@@ -309,9 +309,17 @@
       "organization_id": "org3"
     },
     {
-      "id": "qwe@qwe.qwe",
-      "email": "qwe@qwe.qwe",
-      "password": "$2b$10$YGNnmoRK6UzypdrPa2nanu4L0P7lmBCA34A6kLn///ITOhigC8sFG",
+      "id": "demo@student.com",
+      "email": "demo@student.com",
+      "password": "$2b$10$pGfQ51qYpEF/l7g6gS.yk.Ooc4wZACl0B64lrxZjs9Pw1ub0jJRjK",
+      "role": "student",
+      "name": "Demo Student",
+      "organization_id": "org1"
+    },
+    {
+      "id": "demo@instructor.com",
+      "email": "demo@instructor.com",
+      "password": "$2b$10$pGfQ51qYpEF/l7g6gS.yk.Ooc4wZACl0B64lrxZjs9Pw1ub0jJRjK",
       "role": "instructor",
       "name": "Test Instructor"
     },
@@ -640,7 +648,7 @@
     },
     {
       "id": "FinalDEMO@gmail.com",
-      "email": "FinalDEMO@gmail.com",
+      "email": "demo@student.com",
       "password": "$2b$10$KuVKwcfM1Aa3NFldSABKT.Es9NmK3NK66iGJVLRFLVwH/TrpJ1NLS",
       "role": "instructor",
       "name": "Instructor DemoFinal"
@@ -1737,49 +1745,32 @@
     {
       "id": "eed855a7-7328-4135-b6b0-b005426dcfc6",
       "instructor_id": "ewe@ewe.ewe",
-      "organization_id": [
-        "org1",
-        "org2",
-        "org3"
-      ]
+      "organization_id": ["org1", "org2", "org3"]
     },
     {
       "id": "b07785fb-0f84-48df-b6c6-5794f6db27b7",
       "instructor_id": "qwe@qwe.qwe",
-      "organization_id": [
-        "org1",
-        "org2",
-        "org3"
-      ]
+      "organization_id": ["org1", "org2", "org3"]
     },
     {
       "id": "544f5cc2-76d0-4790-b32d-c9e6dd9722a2",
       "instructor_id": "instinst22@gmail.com",
-      "organization_id": [
-        "org1",
-        "org2"
-      ]
+      "organization_id": ["org1", "org2"]
     },
     {
       "id": "d345f84d-2376-45ca-bd9c-ddc9bac91810",
       "instructor_id": "def@def.def",
-      "organization_id": [
-        "org1"
-      ]
+      "organization_id": ["org1"]
     },
     {
       "id": "4900aa56-8866-4bc0-9506-747c9aaa8826",
       "instructor_id": "DemoI@gmail.com",
-      "organization_id": [
-        "org1"
-      ]
+      "organization_id": ["org1"]
     },
     {
       "id": "88ca9b3d-73bc-4faf-9d1d-41099d71c6eb",
       "instructor_id": "FinalDEMO@gmail.com",
-      "organization_id": [
-        "org1"
-      ]
+      "organization_id": ["org1"]
     }
   ]
 }

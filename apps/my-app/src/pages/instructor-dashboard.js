@@ -125,7 +125,7 @@ const InstructorDashboard = ({ organizations, org, courses, teams, setTeams, stu
 
   const handleEditSubmit = async () => {
     try {
-      const response = await fetch("https://peer-review.onrender.com/edit-student", {
+      const response = await fetch("http://localhost:3080/edit-student", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -157,7 +157,7 @@ const InstructorDashboard = ({ organizations, org, courses, teams, setTeams, stu
 
   const handleTeamEditSubmit = async () => {
     try {
-      const response = await fetch("https://peer-review.onrender.com/edit-team", {
+      const response = await fetch("http://localhost:3080/edit-team", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -213,7 +213,7 @@ const InstructorDashboard = ({ organizations, org, courses, teams, setTeams, stu
         complete: async function (results) {
           console.log("Parsed Data:", results.data);
           try {
-            const response = await fetch("https://peer-review.onrender.com/import-student-csv", {
+            const response = await fetch("http://localhost:3080/import-student-csv", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -420,7 +420,7 @@ const InstructorDashboard = ({ organizations, org, courses, teams, setTeams, stu
   const handleSubmit = async () => {
     try {
       // Single API call to submit all the user data at once
-      await fetch("https://peer-review.onrender.com/create-student", {
+      await fetch("http://localhost:3080/create-student", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -444,7 +444,7 @@ const InstructorDashboard = ({ organizations, org, courses, teams, setTeams, stu
 
     try {
       // Single API call to submit all the team data at once
-      await fetch("https://peer-review.onrender.com/create-team", {
+      await fetch("http://localhost:3080/create-team", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
