@@ -34,7 +34,7 @@ const Login = ({ role, setRole, email, setEmail, loggedIn, setLoggedIn }) => {
   const fillDemoInstructor = () => {
     setRole("instructor");
     setEmail("demo@instructor.com");
-    setPassword("Password123");
+    setPassword("password123");
     setEmailError("");
     setPasswordError("");
     setRoleError("");
