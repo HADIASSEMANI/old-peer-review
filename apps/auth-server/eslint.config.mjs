@@ -8,33 +8,34 @@ export default [
   {
     files: ["**/*.{js,mjs,cjs,jsx}"],
   },
+  // apps/auth-server/eslint.config.mjs
   {
     languageOptions: {
       globals: {
-        ...globals.browser,  // Include default browser globals
-        ...globals.jest,     // Add Jest globals
+        ...globals.node, // Defines module, process, require, __dirname, etc.
+        ...globals.browser,
+        ...globals.jest,
         global: true,
-        require: "readonly", // Mark require as a readonly global (for Node.js)
       },
     },
   },
-  pluginJs.configs.recommended,  // Apply recommended JavaScript rules
-  pluginReact.configs.flat.recommended,  // Apply recommended React rules
+  pluginJs.configs.recommended, // Apply recommended JavaScript rules
+  pluginReact.configs.flat.recommended, // Apply recommended React rules
   {
     plugins: {
-      jest: pluginJest,  // Add the Jest plugin
+      jest: pluginJest, // Add the Jest plugin
     },
     rules: {
-      "jest/no-disabled-tests": "warn",  // Example Jest rule
-      "jest/no-focused-tests": "error",  // Example Jest rule
-      "jest/no-identical-title": "error",  // Example Jest rule
-      "jest/valid-expect": "error",  // Example Jest rule
+      "jest/no-disabled-tests": "warn", // Example Jest rule
+      "jest/no-focused-tests": "error", // Example Jest rule
+      "jest/no-identical-title": "error", // Example Jest rule
+      "jest/valid-expect": "error", // Example Jest rule
     },
   },
   {
     settings: {
       react: {
-        version: 'detect', // Automatically detect the version of React
+        version: "detect", // Automatically detect the version of React
       },
     },
   },

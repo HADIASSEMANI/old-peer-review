@@ -69,14 +69,6 @@
       "name": "Henry Black"
     },
     {
-      "id": "40827615",
-      "email": "sophia.taylor@school.com",
-      "password": "hashed_password12",
-      "role": "student",
-      "name": "Sophia Taylor",
-      "organization_id": "org1"
-    },
-    {
       "id": "40973826",
       "email": "jacob.martin@school.com",
       "password": "hashed_password13",
@@ -309,19 +301,12 @@
       "organization_id": "org3"
     },
     {
-      "id": "demo@student.com",
+      "id": "40827615",
       "email": "demo@student.com",
       "password": "$2b$10$pGfQ51qYpEF/l7g6gS.yk.Ooc4wZACl0B64lrxZjs9Pw1ub0jJRjK",
       "role": "student",
       "name": "Demo Student",
       "organization_id": "org1"
-    },
-    {
-      "id": "demo@instructor.com",
-      "email": "demo@instructor.com",
-      "password": "$2b$10$pGfQ51qYpEF/l7g6gS.yk.Ooc4wZACl0B64lrxZjs9Pw1ub0jJRjK",
-      "role": "instructor",
-      "name": "Test Instructor"
     },
     {
       "id": "Student999@email.com",
@@ -647,11 +632,11 @@
       "organization_id": "org1"
     },
     {
-      "id": "FinalDEMO@gmail.com",
-      "email": "demo@student.com",
-      "password": "$2b$10$KuVKwcfM1Aa3NFldSABKT.Es9NmK3NK66iGJVLRFLVwH/TrpJ1NLS",
+      "id": "qwe@qwe.qwe",
+      "email": "demo@instructor.com",
+      "password": "$2b$10$eOz9gAhe491tj5avPoV2kOe3kGXR4mjlJojkM0.Iy467wUGi9Lkc6",
       "role": "instructor",
-      "name": "Instructor DemoFinal"
+      "name": "Demo Instructor"
     }
   ],
   "courses": [
@@ -1341,7 +1326,7 @@
     {
       "id": "5d1432e7-e331-4f07-8de7-7a210e4f3fe5",
       "team_id": "33b8c7af-9a64-4f31-8504-2f51f437d68b",
-      "student_id": "123123123"
+      "student_id": "40827615"
     },
     {
       "id": "8768dd59-19b0-4df3-aa35-068360ae20b1",
@@ -1739,38 +1724,119 @@
       "dismissed": true,
       "resolved": false,
       "timestamp": "2024-11-27T02:11:17.374Z"
+    },
+    {
+      "id": 21,
+      "evaluator_id": "234234234",
+      "evaluatee_id": "40827615",
+      "cooperation": 6,
+      "conceptual_contribution": 6,
+      "practical_contribution": 7,
+      "work_ethic": 7,
+      "cooperation_comment": "Very active during team meetings and communicates clearly.",
+      "conceptual_comment": "Came up with great system architecture ideas.",
+      "practical_comment": "Implemented major frontend and backend features on time.",
+      "ethic_comment": "Consistently reliable and met all milestones.",
+      "team_id": "33b8c7af-9a64-4f31-8504-2f51f437d68b",
+      "disputed": false,
+      "reevaluated": false,
+      "dismissed": false,
+      "resolved": false,
+      "timestamp": "2026-08-14T07:10:00.000Z"
+    },
+    {
+      "id": 22,
+      "evaluator_id": "45554444",
+      "evaluatee_id": "40827615",
+      "cooperation": 7,
+      "conceptual_contribution": 6,
+      "practical_contribution": 6,
+      "work_ethic": 7,
+      "cooperation_comment": "Excellent team player, always supportive.",
+      "conceptual_comment": "Provided thoughtful input during brainstorming sessions.",
+      "practical_comment": "High quality code and thorough testing.",
+      "ethic_comment": "Very dedicated and proactive.",
+      "team_id": "33b8c7af-9a64-4f31-8504-2f51f437d68b",
+      "disputed": false,
+      "reevaluated": false,
+      "dismissed": false,
+      "resolved": false,
+      "timestamp": "2026-08-14T07:11:00.000Z"
+    },
+    {
+      "id": 23,
+      "evaluator_id": "40973826",
+      "evaluatee_id": "40827615",
+      "cooperation": 5,
+      "conceptual_contribution": 6,
+      "practical_contribution": 6,
+      "work_ethic": 6,
+      "cooperation_comment": "Good cooperation across project tasks.",
+      "conceptual_comment": "Solid understanding of requirements.",
+      "practical_comment": "Delivered assigned parts efficiently.",
+      "ethic_comment": "Dependable teammate throughout the sprint.",
+      "team_id": "t1",
+      "disputed": false,
+      "reevaluated": false,
+      "dismissed": false,
+      "resolved": false,
+      "timestamp": "2026-08-14T07:12:00.000Z"
     }
   ],
   "instructor_org_memberships": [
     {
       "id": "eed855a7-7328-4135-b6b0-b005426dcfc6",
       "instructor_id": "ewe@ewe.ewe",
-      "organization_id": ["org1", "org2", "org3"]
+      "organization_id": [
+        "org1",
+        "org2",
+        "org3"
+      ]
     },
     {
       "id": "b07785fb-0f84-48df-b6c6-5794f6db27b7",
       "instructor_id": "qwe@qwe.qwe",
-      "organization_id": ["org1", "org2", "org3"]
+      "organization_id": [
+        "org1",
+        "org2",
+        "org3"
+      ]
     },
     {
       "id": "544f5cc2-76d0-4790-b32d-c9e6dd9722a2",
       "instructor_id": "instinst22@gmail.com",
-      "organization_id": ["org1", "org2"]
+      "organization_id": [
+        "org1",
+        "org2"
+      ]
     },
     {
       "id": "d345f84d-2376-45ca-bd9c-ddc9bac91810",
       "instructor_id": "def@def.def",
-      "organization_id": ["org1"]
+      "organization_id": [
+        "org1"
+      ]
     },
     {
       "id": "4900aa56-8866-4bc0-9506-747c9aaa8826",
       "instructor_id": "DemoI@gmail.com",
-      "organization_id": ["org1"]
+      "organization_id": [
+        "org1"
+      ]
     },
     {
       "id": "88ca9b3d-73bc-4faf-9d1d-41099d71c6eb",
       "instructor_id": "FinalDEMO@gmail.com",
-      "organization_id": ["org1"]
+      "organization_id": [
+        "org1"
+      ]
+    },
+    {
+      "id": "4fe50337-54e7-4480-822b-117c0329dc7d",
+      "instructor_id": "demo@instructor.com",
+      "organization_id": [
+        "org1"
+      ]
     }
   ]
 }
