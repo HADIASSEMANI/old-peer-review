@@ -46,7 +46,7 @@ function App() {
     }
 
     try {
-      fetch("http://localhost:3080/courses", {
+      fetch("https://old-peer-review.onrender.comcourses", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -88,7 +88,7 @@ function App() {
       return;
     }
 
-    fetch("http://localhost:3080/verify", {
+    fetch("https://old-peer-review.onrender.comverify", {
       method: "POST",
       headers: {
         "jwt-token": user.token,

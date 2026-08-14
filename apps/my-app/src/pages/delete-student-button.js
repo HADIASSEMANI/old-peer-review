@@ -3,40 +3,51 @@ import { Button, Modal, Group, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconTrash } from "@tabler/icons-react";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-
-import { notifications } from '@mantine/notifications';
-
+import { notifications } from "@mantine/notifications";
 
 const DeleteStudentButton = ({ studentId, onDelete }) => {
   const [opened, { open, close }] = useDisclosure(false);
 
   const handleDelete = async () => {
     try {
-      const response = await fetch("http://localhost:3080/delete-student", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://old-peer-review.onrender.comdelete-student",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ studentId }),
         },
-        body: JSON.stringify({ studentId }),
-      });
+      );
 
       if (response.ok) {
         onDelete(studentId); // Notify parent to refresh the data or remove the student locally
         close();
         notifications.show({
-          title: 'Success',
-          message: 'Student was deleted successfully!',
-          style: { position: "fixed", top: "4rem", right: "1rem", zIndex: 9999 },
-          color: 'green',
+          title: "Success",
+          message: "Student was deleted successfully!",
+          style: {
+            position: "fixed",
+            top: "4rem",
+            right: "1rem",
+            zIndex: 9999,
+          },
+          color: "green",
         });
       } else {
         notifications.show({
-          title: 'Error',
-          message: 'Failed to delete the student. Please try again.',
-          style: { position: "fixed", top: "4rem", right: "1rem", zIndex: 9999 },
-          color: 'red',
+          title: "Error",
+          message: "Failed to delete the student. Please try again.",
+          style: {
+            position: "fixed",
+            top: "4rem",
+            right: "1rem",
+            zIndex: 9999,
+          },
+          color: "red",
         });
         console.error("Failed to delete student");
       }
@@ -72,12 +83,18 @@ const DeleteStudentButton = ({ studentId, onDelete }) => {
           close: { position: "absolute", right: "16px" },
         }}
       >
-        <Text>Are you sure you want to delete this student? This action cannot be undone.</Text>
+        <Text>
+          Are you sure you want to delete this student? This action cannot be
+          undone.
+        </Text>
         <Group justify="flex-end" mt="md">
-          <Button variant="outline" onClick={(e) => {
-            e.stopPropagation(); // Prevent triggering the parent row's onClick
-            close();
-          }}>
+          <Button
+            variant="outline"
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent triggering the parent row's onClick
+              close();
+            }}
+          >
             Cancel
           </Button>
           <Button
@@ -97,7 +114,7 @@ const DeleteStudentButton = ({ studentId, onDelete }) => {
 
 DeleteStudentButton.propTypes = {
   studentId: PropTypes.string.isRequired, // Assuming studentId is a string (could be a UUID or other identifier)
-  onDelete: PropTypes.func.isRequired,    // Assuming onDelete is a function to handle the deletion
+  onDelete: PropTypes.func.isRequired, // Assuming onDelete is a function to handle the deletion
 };
 
 export default DeleteStudentButton;

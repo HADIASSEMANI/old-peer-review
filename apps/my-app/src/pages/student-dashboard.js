@@ -1,42 +1,53 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { NavLink, AppShell, Table, Group, Space, Button, Title, TextInput, rem, Select, Alert } from '@mantine/core';
-import { IconUsersGroup,  IconSearch, IconFileText , IconThumbUp} from '@tabler/icons-react';
-
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  NavLink,
+  AppShell,
+  Table,
+  Group,
+  Space,
+  Button,
+  Title,
+  TextInput,
+  rem,
+  Select,
+  Alert,
+} from "@mantine/core";
+import {
+  IconUsersGroup,
+  IconSearch,
+  IconFileText,
+  IconThumbUp,
+} from "@tabler/icons-react";
 
 //import { NavbarStudentDashboard } from './NavbarStudentDashboard.js';
 //import PeerFeedback from './peerFeedback.js';
-import TeammatesList from './TeammatesList.js';
+import TeammatesList from "./TeammatesList.js";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
+import DisputeButton from "./dispute-button.js";
 
-import DisputeButton from './dispute-button.js';
-
-
-import './styles.css';
-
+import "./styles.css";
 
 const StudentDashboard = ({ email, loggedIn, setLoggedIn }) => {
-
   // Session management
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem('user'));
+  const user = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
     if (!user || !user.token) {
       console.error("JWT token not found. Please log in again.");
       setLoggedIn(false);
-      navigate('/');
+      navigate("/");
     }
   }, [user, navigate, setLoggedIn]);
 
-  // Fetching current user ID 
-  const currentUserId = JSON.parse(localStorage.getItem('user'))?.email;
-
+  // Fetching current user ID
+  const currentUserId = JSON.parse(localStorage.getItem("user"))?.email;
 
   const [selectedTeam, setSelectedTeam] = useState(null);
-  const [active, setActive] = useState('My Teams');
-  const [query, setQuery] = useState('');
+  const [active, setActive] = useState("My Teams");
+  const [query, setQuery] = useState("");
   //const [filteredTeamsByQuery, setFilteredTeamsByQuery] = useState([]); // State for filtered teams
 
   const [organizations, setOrganizations] = useState([]);
@@ -74,34 +85,34 @@ const StudentDashboard = ({ email, loggedIn, setLoggedIn }) => {
     }
 
     try {
-      fetch('http://localhost:3080/courses-students', {
+      fetch("https://old-peer-review.onrender.comcourses-students", {
         method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'jwt-token': user.token,
+          "Content-Type": "application/json",
+          "jwt-token": user.token,
         },
         body: JSON.stringify({ student: user.email }),
       })
         .then((response) => response.json())
         .then((data) => {
-          if (data.message === 'success') {
+          if (data.message === "success") {
             setOrganizations(data.organization_info);
             setCourses(data.course_info);
             setTeams(data.team_info);
             setMemberships(data.membership_info);
             setStudents(data.peers_info);
           } else {
-            console.error('Failed to fetch options:', data.message);
+            console.error("Failed to fetch options:", data.message);
           }
-        })
+        });
     } catch (error) {
-      console.error('Error fetching options:', error);
+      console.error("Error fetching options:", error);
     }
   };
 
   // const fetchPeerFeedback = (teamId) => {
   //   const user = JSON.parse(localStorage.getItem("user"));
-  //   fetch(`http://localhost:3080/peer-evaluations/feedback?teamId=${teamId}`, {
+  //   fetch(`https://old-peer-review.onrender.compeer-evaluations/feedback?teamId=${teamId}`, {
   //     method: "GET",
   //     headers: { 'jwt-token': user.token },
   //   })
@@ -120,7 +131,9 @@ const StudentDashboard = ({ email, loggedIn, setLoggedIn }) => {
 
   useEffect(() => {
     if (selectedTeam) {
-      fetch(`http://localhost:3080/peer-evaluations/feedback?teamId=${selectedTeam}`)
+      fetch(
+        `https://old-peer-review.onrender.compeer-evaluations/feedback?teamId=${selectedTeam}`,
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.message === "success") {
@@ -129,17 +142,25 @@ const StudentDashboard = ({ email, loggedIn, setLoggedIn }) => {
             setPeerFeedbackData([]);
           }
         })
-        .catch((error) => console.error("Error fetching peer feedback:", error));
+        .catch((error) =>
+          console.error("Error fetching peer feedback:", error),
+        );
     }
   }, [selectedTeam]);
 
   const rows2 = teams.map((team) => {
     const teamCourse = courses.find((course) => course.id === team.course_id);
     const courseName = teamCourse ? teamCourse.name : "No course";
-    const organizationName = organizations.find((org) => org.id === teamCourse?.organization_id)?.name || "Unknown organization";
+    const organizationName =
+      organizations.find((org) => org.id === teamCourse?.organization_id)
+        ?.name || "Unknown organization";
 
     return (
-      <Table.Tr key={team.id} onClick={() => setSelectedTeam(team)} style={{ cursor: 'pointer' }}>
+      <Table.Tr
+        key={team.id}
+        onClick={() => setSelectedTeam(team)}
+        style={{ cursor: "pointer" }}
+      >
         <Table.Td>{team.name || "No name"}</Table.Td>
         <Table.Td>{team.max_size || "No max size"}</Table.Td>
         <Table.Td>{courseName}</Table.Td>
@@ -157,37 +178,37 @@ const StudentDashboard = ({ email, loggedIn, setLoggedIn }) => {
       return;
     }
     try {
-      fetch('http://localhost:3080/courses-students', {
+      fetch("https://old-peer-review.onrender.comcourses-students", {
         method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'jwt-token': user.token,
+          "Content-Type": "application/json",
+          "jwt-token": user.token,
         },
         body: JSON.stringify({ student: user.email }),
       })
         .then((response) => response.json())
         .then((data) => {
-          if (data.message === 'success') {
+          if (data.message === "success") {
             fetchData();
           } else {
-            console.error('Failed to fetch options:', data.message);
+            console.error("Failed to fetch options:", data.message);
           }
-        })
+        });
     } catch (error) {
-      console.error('Error fetching options:', error);
+      console.error("Error fetching options:", error);
     }
   }, [loggedIn]);
 
   const tabs = [
-    { label: 'My Teams', icon: IconUsersGroup },
-    { label: 'Submissions', icon: IconFileText },
-    { label: 'Feedback', icon: IconThumbUp }
+    { label: "My Teams", icon: IconUsersGroup },
+    { label: "Submissions", icon: IconFileText },
+    { label: "Feedback", icon: IconThumbUp },
   ];
 
   const navBarData = tabs.map((data) => (
     <NavLink
       key={data.label}
-      leftSection={<data.icon size='1rem' stroke='1.5' />}
+      leftSection={<data.icon size="1rem" stroke="1.5" />}
       label={data.label}
       active={data.label === active}
       variant="light"
@@ -229,13 +250,24 @@ const StudentDashboard = ({ email, loggedIn, setLoggedIn }) => {
   // });
 
   const filteredFeedback = peerFeedbackData.filter((feedback) => {
-    const evaluatee = students.find(student => student.id === feedback.evaluatee_id);  // Assuming `students` holds user data
+    const evaluatee = students.find(
+      (student) => student.id === feedback.evaluatee_id,
+    ); // Assuming `students` holds user data
     const evaluateeEmail = evaluatee ? evaluatee.email : null;
-    console.log("Evaluatee email:", evaluateeEmail, "Current user email:", currentUserId);
-    return feedback.team_id === selectedTeam && evaluateeEmail === currentUserId;
+    console.log(
+      "Evaluatee email:",
+      evaluateeEmail,
+      "Current user email:",
+      currentUserId,
+    );
+    return (
+      feedback.team_id === selectedTeam && evaluateeEmail === currentUserId
+    );
   });
 
-  const evaluator = students.find(student => String(student.email) === String(currentUserId));
+  const evaluator = students.find(
+    (student) => String(student.email) === String(currentUserId),
+  );
 
   // Peer submissions Table
   const submissionsTable = (
@@ -245,22 +277,23 @@ const StudentDashboard = ({ email, loggedIn, setLoggedIn }) => {
         <Alert
           color="red"
           title="Confidentiality Reminder"
-          style={{ marginBottom: '1em' }}
+          style={{ marginBottom: "1em" }}
         >
           <div>
-            Please maintain the confidentiality of all peer feedback information.
+            Please maintain the confidentiality of all peer feedback
+            information.
             {/* The 'X' button */}
             <button
               onClick={handleCloseAlert}
               style={{
-                position: 'absolute', // Absolute positioning within the Alert container
-                top: '10px',          // Top offset
-                right: '10px',        // Right offset
-                background: 'transparent',
-                border: 'none',
-                color: 'black',
-                fontSize: '16px',
-                cursor: 'pointer',
+                position: "absolute", // Absolute positioning within the Alert container
+                top: "10px", // Top offset
+                right: "10px", // Right offset
+                background: "transparent",
+                border: "none",
+                color: "black",
+                fontSize: "16px",
+                cursor: "pointer",
               }}
             >
               X
@@ -277,37 +310,56 @@ const StudentDashboard = ({ email, loggedIn, setLoggedIn }) => {
             <th className="other-column">Conceptual Contribution</th>
             <th className="other-column">Practical Contribution</th>
             <th className="other-column">Work Ethic</th>
-            <th className="comment-column">Comments</th> {/* Wider comments column */}
+            <th className="comment-column">Comments</th>{" "}
+            {/* Wider comments column */}
             <th className="other-column">Average</th>
             <th className="other-column">Date</th>
           </tr>
         </thead>
 
-
         <tbody>
-          {peerFeedbackData.filter(feedback => String(feedback.evaluator_id) === String(evaluator.id)).length > 0 ? (
+          {peerFeedbackData.filter(
+            (feedback) =>
+              String(feedback.evaluator_id) === String(evaluator.id),
+          ).length > 0 ? (
             peerFeedbackData
-              .filter(feedback => String(feedback.evaluator_id) === String(evaluator.id))
+              .filter(
+                (feedback) =>
+                  String(feedback.evaluator_id) === String(evaluator.id),
+              )
               .map((feedback, index) => {
                 const averageScore = (
                   (Number(feedback.cooperation) +
                     Number(feedback.conceptual_contribution) +
                     Number(feedback.practical_contribution) +
-                    Number(feedback.work_ethic)) / 4
+                    Number(feedback.work_ethic)) /
+                  4
                 ).toFixed(2);
 
                 return (
                   <tr key={index}>
-                    <td>{students.find(student => student.id === feedback.evaluatee_id)?.name || feedback.evaluator_id}</td>
+                    <td>
+                      {students.find(
+                        (student) => student.id === feedback.evaluatee_id,
+                      )?.name || feedback.evaluator_id}
+                    </td>
                     <td>{feedback.cooperation}</td>
                     <td>{feedback.conceptual_contribution}</td>
                     <td>{feedback.practical_contribution}</td>
                     <td>{feedback.work_ethic}</td>
                     <td>
-                      <div>Cooperation: {feedback.cooperation_comment || 'No comment'}</div>
-                      <div>Conceptual: {feedback.conceptual_comment || 'No comment'}</div>
-                      <div>Practical: {feedback.practical_comment || 'No comment'}</div>
-                      <div>Ethic: {feedback.ethic_comment || 'No comment'}</div>
+                      <div>
+                        Cooperation:{" "}
+                        {feedback.cooperation_comment || "No comment"}
+                      </div>
+                      <div>
+                        Conceptual:{" "}
+                        {feedback.conceptual_comment || "No comment"}
+                      </div>
+                      <div>
+                        Practical: {feedback.practical_comment || "No comment"}
+                      </div>
+                      <div>Ethic: {feedback.ethic_comment || "No comment"}</div>
                     </td>
                     <td>{averageScore}</td>
                     <td>{new Date(feedback.timestamp).toLocaleDateString()}</td>
@@ -324,8 +376,6 @@ const StudentDashboard = ({ email, loggedIn, setLoggedIn }) => {
     </div>
   );
 
-
-
   const feedbackTable = (
     <div>
       {/* Confidentiality message */}
@@ -333,21 +383,22 @@ const StudentDashboard = ({ email, loggedIn, setLoggedIn }) => {
         <Alert
           color="blue"
           title="Constructive Feedback Reminder"
-          style={{ marginBottom: '1em', marginTop: '1em' }}
+          style={{ marginBottom: "1em", marginTop: "1em" }}
         >
           <div>
-            Peer feedback is intended to help everyone improve. Please take all ratings as constructive, not personal.
+            Peer feedback is intended to help everyone improve. Please take all
+            ratings as constructive, not personal.
             <button
               onClick={handleCloseAlert2}
               style={{
-                position: 'absolute',
-                top: '10px',
-                right: '10px',
-                background: 'transparent',
-                border: 'none',
-                color: 'black',
-                fontSize: '16px',
-                cursor: 'pointer',
+                position: "absolute",
+                top: "10px",
+                right: "10px",
+                background: "transparent",
+                border: "none",
+                color: "black",
+                fontSize: "16px",
+                cursor: "pointer",
               }}
             >
               X
@@ -363,46 +414,59 @@ const StudentDashboard = ({ email, loggedIn, setLoggedIn }) => {
             <th className="team-column">Team</th>
             <th className="comments-column">Comments</th>
             <th className="average-score-column">Average Score</th>
-
           </tr>
         </thead>
 
         <tbody>
           {filteredFeedback.length > 0 ? (
             filteredFeedback.map((feedback, index) => {
-              if (index === 0 || filteredFeedback[index - 1].team_id !== feedback.team_id) {
+              if (
+                index === 0 ||
+                filteredFeedback[index - 1].team_id !== feedback.team_id
+              ) {
                 const team = teams.find((team) => team.id === feedback.team_id);
 
                 // Concatenate all the comments into one string
                 // Concatenate all comments from all teammates in the selected team
                 const allComments = filteredFeedback
-                  .map(fb => [
-                    fb.cooperation_comment,
-                    fb.conceptual_comment,
-                    fb.practical_comment,
-                    fb.ethic_comment
-                  ].filter(comment => comment) // Filter out empty comments
-                    .join(' ')) // Join all comments into a single string
-                  .join(' '); // Join comments from all teammates into one string
+                  .map((fb) =>
+                    [
+                      fb.cooperation_comment,
+                      fb.conceptual_comment,
+                      fb.practical_comment,
+                      fb.ethic_comment,
+                    ]
+                      .filter((comment) => comment) // Filter out empty comments
+                      .join(" "),
+                  ) // Join all comments into a single string
+                  .join(" "); // Join comments from all teammates into one string
 
                 // Calculate average score across all criteria
                 const totalScore = filteredFeedback.reduce((total, fb) => {
-                  return total +
+                  return (
+                    total +
                     Number(fb.cooperation) +
                     Number(fb.conceptual_contribution) +
                     Number(fb.practical_contribution) +
-                    Number(fb.work_ethic);
+                    Number(fb.work_ethic)
+                  );
                 }, 0);
 
-                const averageOverallScore = (totalScore / (filteredFeedback.length * 4)).toFixed(2); // Divide by number of criteria * number of feedbacks
-
+                const averageOverallScore = (
+                  totalScore /
+                  (filteredFeedback.length * 4)
+                ).toFixed(2); // Divide by number of criteria * number of feedbacks
 
                 return (
                   <tr key={index}>
                     <td>{team?.name || "No team name"}</td>
                     <td>{allComments}</td>
-                    <td style={{ textAlign: 'center' }}>{averageOverallScore}</td>
-                    <td><DisputeButton /></td>
+                    <td style={{ textAlign: "center" }}>
+                      {averageOverallScore}
+                    </td>
+                    <td>
+                      <DisputeButton />
+                    </td>
                   </tr>
                 );
               } else {
@@ -419,20 +483,33 @@ const StudentDashboard = ({ email, loggedIn, setLoggedIn }) => {
     </div>
   );
 
-
   return (
     <AppShell navbar={{ width: 250 }}>
       <AppShell.Navbar>{navBarData}</AppShell.Navbar>
 
-      {active === 'My Teams' && (
+      {active === "My Teams" && (
         <AppShell.Main>
           <Space h="md" />
           <Group justify="space-between">
             <Title>My Teams</Title>
           </Group>
           <Space h="md" />
-          <Group justify="space-between" style={{ alignItems: "center", height: "62.59px" }}>
-            <TextInput value={query} placeholder="Search" leftSectionPointerEvents="none" leftSection={<IconSearch style={{ width: rem(20), height: rem(20) }} stroke={1.5} />} onChange={(event) => setQuery(event.currentTarget.value)} />
+          <Group
+            justify="space-between"
+            style={{ alignItems: "center", height: "62.59px" }}
+          >
+            <TextInput
+              value={query}
+              placeholder="Search"
+              leftSectionPointerEvents="none"
+              leftSection={
+                <IconSearch
+                  style={{ width: rem(20), height: rem(20) }}
+                  stroke={1.5}
+                />
+              }
+              onChange={(event) => setQuery(event.currentTarget.value)}
+            />
           </Group>
           <Space h="md" />
           <Table.ScrollContainer>
@@ -445,23 +522,39 @@ const StudentDashboard = ({ email, loggedIn, setLoggedIn }) => {
                   <Table.Th>Organization</Table.Th>
                 </Table.Tr>
               </Table.Thead>
-              <Table.Tbody>{rows2.length > 0 ? rows2 : <tr><td colSpan={4}>No teams found</td></tr>}</Table.Tbody>
+              <Table.Tbody>
+                {rows2.length > 0 ? (
+                  rows2
+                ) : (
+                  <tr>
+                    <td colSpan={4}>No teams found</td>
+                  </tr>
+                )}
+              </Table.Tbody>
             </Table>
           </Table.ScrollContainer>
 
           {selectedTeam && (
             <div>
-              <Button onClick={() => setSelectedTeam(null)} className="button3">Back to Team List</Button>
-              <TeammatesList memberships={memberships.filter(m => m.team_id === selectedTeam.id)} teams={teams} students={students} email={email} selectedTeam={selectedTeam} />
+              <Button onClick={() => setSelectedTeam(null)} className="button3">
+                Back to Team List
+              </Button>
+              <TeammatesList
+                memberships={memberships.filter(
+                  (m) => m.team_id === selectedTeam.id,
+                )}
+                teams={teams}
+                students={students}
+                email={email}
+                selectedTeam={selectedTeam}
+              />
             </div>
           )}
-
         </AppShell.Main>
       )}
 
-
       {/* Peer Feedback Tab */}
-      {active === 'Submissions' && (
+      {active === "Submissions" && (
         <AppShell.Main>
           <Space h="md" />
           <Title>Submissions</Title>
@@ -470,16 +563,16 @@ const StudentDashboard = ({ email, loggedIn, setLoggedIn }) => {
           <Select
             label="Filter By Team"
             placeholder="Select a team"
-            data={teams.map(team => ({ value: team.id, label: team.name }))}
+            data={teams.map((team) => ({ value: team.id, label: team.name }))}
             onChange={setSelectedTeam}
-            style={{ width: '300px', marginBottom: '30px', marginTop: '20px' }}
+            style={{ width: "300px", marginBottom: "30px", marginTop: "20px" }}
           />
 
           {submissionsTable}
         </AppShell.Main>
       )}
 
-      {active === 'Feedback' && (
+      {active === "Feedback" && (
         <AppShell.Main>
           <Space h="md" />
           <Title>Peer Feedback</Title>
@@ -488,18 +581,14 @@ const StudentDashboard = ({ email, loggedIn, setLoggedIn }) => {
           <Select
             label="Filter By Team"
             placeholder="Select a team"
-            data={teams.map(team => ({ value: team.id, label: team.name }))}
+            data={teams.map((team) => ({ value: team.id, label: team.name }))}
             onChange={setSelectedTeam}
-            style={{ width: '300px', marginBottom: '30px', marginTop: '20px' }}
+            style={{ width: "300px", marginBottom: "30px", marginTop: "20px" }}
           />
 
           {feedbackTable}
-
         </AppShell.Main>
       )}
-
-
-
     </AppShell>
   );
 };
@@ -511,4 +600,3 @@ StudentDashboard.propTypes = {
 };
 
 export default StudentDashboard;
-
